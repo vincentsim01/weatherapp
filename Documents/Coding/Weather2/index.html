@@ -30,17 +30,17 @@
     <header class="bg-gradient-to-r from-blue-500 via-blue-300 to-blue-100 w-[100%] h-[15vh] shadow-2xl sticky top-0 md:flex md:justify-center md:items-center z-50">
         <i class="fa-solid fa-sun fa-3x"></i>
     </header>
-    <main id="mainbanner" class=" shadow-md block text-center relative bg-[url('./asset/kinderdijk.png')] bg-cover bg-no-repeat bg-top md:h-[90vh] h-[50vh] z-0">
+    <main id="mainbanner" class=" shadow-md block text-center relative bg-[url('./asset/kinderdijk.png')] bg-cover bg-no-repeat bg-top md:h-[80vh] h-[50vh] z-0">
         <div id="banneroverlay" class="absolute w-[100%] h-[100%] bg-black/20 -z-1"></div>
         <br>
-        <h1 class="text-3xl"><b>WEATHER APP</b></h1>
+        <h1 class="text-3xl"><b><u>WEATHER APP</u></b></h1>
         <br>
-        <div class=" rounded-md z-3 h-[70%] flex justify-center items-center">
+        <div class=" rounded-md z-3 h-[30%] flex justify-center items-center">
             <input type="text" id="citytextinput" placeholder="insert the city name" class="border border-white rounded-md text-white pl-3 pr-3 mr-3 z-5">
-            <button id="getweatherbutton" class="border border-black rounded-tr-md rounded-bl-md bg-white pl-3 pr-3 hover:scale-105 hover:text-white hover:bg-black cursor-pointer z-10">Get Weather</button>
+            <button id="getweatherbutton" class=" rounded-md bg-blue-500 text-white pl-3 pr-3 hover:scale-105 hover:text-white hover:bg-black cursor-pointer z-10">Get Weather</button>
         </div>
-       <div class=" rounded-lg h-[10vh] flex justify-center items-center hidden" id="textchangecontainer">
-            <div class="relative bg-blue-500 w-[30%] h-[30vh] rounded-lg">
+       <div class=" rounded-lg h-[20vh] flex justify-center items-center hidden" id="textchangecontainer">
+            <div class="relative bg-blue-500 w-[20%] h-[auto] rounded-lg pt-5 pb-5 md:p-5">
                 <button class="absolute -top-3 -right-3 cursor-pointer" onclick="closetextchangecontainer()"><i class="fa-solid fa-circle-xmark"></i></button>
                 <p id="changetext" class="z-3 text-white"></p>
             </div>
@@ -48,6 +48,9 @@
 
         <script src="./JS/script.js"></script>
     </main>
+    <section id="threecitycontainer">
+
+    </section>
 
 </body>
 </html>

@@ -10,7 +10,7 @@ async function getweatherfunction(){
     textchangecontainer.classList.remove('hidden');
 
 
-    changetext.innerHTML = `The Temperature in ${data.name}, ${data.sys.country} is ${data.main.temp} F`;
+    changetext.innerHTML = `${data.sys.country} <br> ${data.name} <br> ${data.main.temp} F`;
 
 }
 
