@@ -15,10 +15,16 @@
     <title>Weather App Vincent</title>
 </head>
 <body class="p-3 border border-black rounded-lg shadow-lg ">
-    <main class="border border-black rounded-md shadow-md block text-center relative bg-[url('./asset/kinderdijk.png')] bg-cover bg-no-repeat bg-top md:h-[70vh] h-[50vh]">
-        <div id="banneroverlay" class="absolute w-[100%] h-[100%] bg-black/30"></div>
-        <button id="getweatherbutton" class="border border-black rounded-tr-md rounded-bl-md pl-3 pr-3 hover:scale-105 hover:text-white hover:bg-black cursor-pointer">Get Weather</button>
-        <p id="changetext">This text will change</p>
+    <main id="mainbanner" class="border border-black rounded-md shadow-md block text-center relative bg-[url('./asset/kinderdijk.png')] bg-cover bg-no-repeat bg-top md:h-[70vh] h-[50vh] z-0">
+        <div id="banneroverlay" class="absolute w-[100%] h-[100%] bg-black/50 -z-1"></div>
+        <br>
+        <div class="border border-black rounded-md z-3">
+            <input type="text" placeholder="inserthere" class="border border-black text-white p-3">
+            <br>
+            <button id="getweatherbutton" class="border border-black rounded-tr-md rounded-bl-md pl-3 pr-3 hover:scale-105 hover:text-white hover:bg-black cursor-pointer">Get Weather</button>
+        </div>
+       
+        <p id="changetext" class="z-3 text-white">This text will change</p>
         <script src="./JS/script.js"></script>
     </main>
 
