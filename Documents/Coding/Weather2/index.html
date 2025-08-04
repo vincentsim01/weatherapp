@@ -14,13 +14,12 @@
 
     <title>Weather App Vincent</title>
 </head>
-<body class="p-3 border border-black rounded-lg shadow-lg ">
-    <main id="mainbanner" class="border border-black rounded-md shadow-md block text-center relative bg-[url('./asset/kinderdijk.png')] bg-cover bg-no-repeat bg-top md:h-[70vh] h-[50vh] z-0">
+<body class="p-3 rounded-lg shadow-lg ">
+    <main id="mainbanner" class="rounded-md shadow-md block text-center relative bg-[url('./asset/kinderdijk.png')] bg-cover bg-no-repeat bg-top md:h-[70vh] h-[50vh] z-0">
         <div id="banneroverlay" class="absolute w-[100%] h-[100%] bg-black/50 -z-1"></div>
         <br>
-        <div class="border border-black rounded-md z-3 h-[70%] flex justify-center items-center">
-            <input type="text" placeholder="insert the city name" class="border border-white rounded-md text-white pl-3 pr-3 mr-3 z-5">
-        
+        <div class=" rounded-md z-3 h-[70%] flex justify-center items-center">
+            <input type="text" id="citytextinput" placeholder="insert the city name" class="border border-white rounded-md text-white pl-3 pr-3 mr-3 z-5">
             <button id="getweatherbutton" class="border border-black rounded-tr-md rounded-bl-md bg-white pl-3 pr-3 hover:scale-105 hover:text-white hover:bg-black cursor-pointer z-10">Get Weather</button>
         </div>
        
