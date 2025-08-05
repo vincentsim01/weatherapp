@@ -42,10 +42,18 @@ async function setthreecitythree(){
 
 setTimeout(setthreecitythree(),0);  
 
-const bannerbackgroundimage = [kinderdijk.png, jiuzhaigou.jpg, grandcanyon.jpg]
+const bannerbackgroundimage = [ 'url("./asset/kinderdijk.png")', 'url("./asset/jiuzhaigou.jpg")', 'url("./asset/grandcanyon.jpg")', 'url("./asset/Harbin-4.jpg")', 'url("./asset/rinjani.jpg")']
+let currentIndex=0;
 
 function changebannerbackground(){
+
     const mainbanner = document.getElementById('mainbanner');
-    
+    mainbanner.style.backgroundImage = bannerbackgroundimage[currentIndex];
+    currentIndex = (currentIndex + 1) % bannerbackgroundimage.length;
+
 }
+
+setInterval(changebannerbackground,3000);
+
+changebannerbackground();
 

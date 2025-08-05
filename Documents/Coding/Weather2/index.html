@@ -12,17 +12,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
     <script src="https://kit.fontawesome.com/b7f46329c5.js" crossorigin="anonymous"></script>
-    <script>
-        tailwind.config = {
-          theme: {
-            extend: {
-              fontFamily: {
-                roboto: ['Roboto Condensed', 'sans-serif'],
-              }
-            }
-          }
+    <style>
+        .font-roboto {
+          font-family: 'Roboto Condensed', sans-serif;
         }
-      </script>
+      </style>
 
     <title>Weather App Vincent</title>
 </head>
@@ -30,10 +24,13 @@
     <header class="bg-gradient-to-r from-blue-500 via-blue-300 to-blue-100 w-[100%] h-[15vh] shadow-2xl sticky top-0 md:flex md:justify-center md:items-center z-50">
         <div class="hover:rotate-45"><i class="fa-solid fa-sun fa-3x"></i></div>
     </header>
-    <main id="mainbanner" class=" shadow-md block text-center relative bg-[url('./asset/kinderdijk.png')] bg-cover bg-no-repeat bg-top md:h-[80vh] h-[50vh] z-0">
+    <div class="flex justify-center items-center text-center  bg-blue-500">
+        <h1 class="text-5xl text-white font-roboto mb-5 mt-5 shadow-4xl"><b><u>WEATHER APP</u></b></h1>
+    </div>
+    <main id="mainbanner" class=" shadow-md block text-center relative bg-cover bg-no-repeat bg-top md:h-[80vh] h-[50vh] z-0">
         <div id="banneroverlay" class="absolute w-[100%] h-[100%] bg-black/20 -z-1"></div>
         <br>
-        <h1 class="text-3xl text-white"><b><u>WEATHER APP</u></b></h1>
+            <h2 class="text-white">Let's find the weather for a city that you love...</h2>
         <br>
         <div class=" rounded-md z-3 h-[30%] flex justify-center items-center">
             <input type="text" id="citytextinput" placeholder="insert the city name" class="border border-white rounded-md text-white pl-3 pr-3 mr-3 z-5">
