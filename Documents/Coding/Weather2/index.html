@@ -3,6 +3,9 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&display=swap" rel="stylesheet">
     <link rel="icon" href="./asset//icons8-weather-100.png" type="image/png" />
     <meta property="og:title" content="Weather App Vincent" />
     <meta property="og:description" content="A short description of your page." />
@@ -16,17 +19,35 @@
         .font-roboto {
           font-family: 'Roboto Condensed', sans-serif;
         }
+
+        .font-josefinsans {
+            font-family: 'Josefin Sans', sans-serif;
+        }
       </style>
 
     <title>Weather App Vincent</title>
 </head>
-<body class="font-sans">
-    <header class="bg-gradient-to-r from-blue-500 via-blue-300 to-blue-100 w-[100%] h-[15vh] shadow-2xl sticky top-0 md:flex md:justify-center md:items-center z-50">
-        <div class="hover:rotate-45"><i class="fa-solid fa-sun fa-3x"></i></div>
+<body class="font-sans"> 
+    <header class="bg-gradient-to-r from-blue-500/50 via-blue-300/60 to-blue-100 bg-opacity-50 w-[100%] h-[15vh] shadow-2xl sticky top-0 md:flex md:justify-evenly md:items-center z-50">
+        <nav class="flex justify-center gap-5">
+            <a href="#">Home</a>
+            <a href="#">About Us</a>
+            <a href="#">Contact</a>
+        </nav>
+        <div class="">
+            <i class="fa-solid fa-sun fa-1x"></i>
+            <br>
+            <div class="flex justify-center items-center text-center">
+                <h1 class="text-4xl text-black font-josefinsans mb-5 mt-5 shadow-4xl"><b><u>WEATHER APP</u></b></h1>
+            </div>
+        </div>
+        <div class="flex justify-between">
+            <a>User</a>
+            <input type="text" placeholder="search">
+            <p>Search</p>
+        </div>
     </header>
-    <div class="flex justify-center items-center text-center  bg-blue-500">
-        <h1 class="text-5xl text-white font-roboto mb-5 mt-5 shadow-4xl"><b><u>WEATHER APP</u></b></h1>
-    </div>
+
     <main id="mainbanner" class=" shadow-md block text-center relative bg-cover bg-no-repeat bg-top md:h-[80vh] h-[50vh] z-0">
         <div id="banneroverlay" class="absolute w-[100%] h-[100%] bg-black/20 -z-1"></div>
         <br>
