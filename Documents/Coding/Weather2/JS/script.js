@@ -32,8 +32,10 @@ async function getpollutionlatlon(){
     const data = await pollutionlatlon.json();
     textpollutioncontainer.classList.remove('hidden');
     textpollution.innerHTML=`
-    <div class='w-[100%]'>
-    <table class='border border-white'>
+    <div class='w-[70%] flex justify-center items-center mx-auto  border border-white relative '>
+   
+    <table class='w-[70%] text-center mx-auto'>
+     <button class="absolute top-0 right-0 cursor-pointer" onclick="closetextpollutioncontainer()"><i class="fa-solid fa-circle-xmark"></i></button>
     <tr>
     <th>Chemical</th>
     <th>Concentration</th>

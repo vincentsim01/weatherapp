@@ -76,21 +76,27 @@
         <div class="thethreecity border border-white rounded-md w-[90%] md:w-[20%] p-4 m-3 shadow-md hover:scale-105 text-center transition-scale duration-300" id="threecityone"></div>
         <div class="thethreecity border border-white rounded-md w-[90%] md:w-[20%] p-4 m-3 shadow-md hover:scale-105 text-center transition-scale duration-300" id="threecitytwo"></div>
         <div class="thethreecity border border-white rounded-md w-[90%] md:w-[20%] p-4 m-3 shadow-md hover:scale-105 text-center transition-scale duration-300" id="threecitythree"></div>
-
-
     </section>
-    <section class="w-[100%] mt-5 p-5 md:h-[40vh] bg-blue-500 font-roboto ">
-        <div class="grid grid-row-1 grid-cols-5 border border-white">
-            <div class="col-start-1 col-end-3 border border-white">
-                <form class="block border-white p-5 px-auto">
-                    <label for="latinput" class="text-left">Latitude:</label> <input id="latinput" class="border border-black text-right">
-                    <label for='loninput'>Longitude:</label> <input id="loninput"  class="border border-black">
+    <section class="w-[100%] mt-5 p-5 md:h-[70vh] bg-blue-500 font-roboto ">
+        <div class="grid grid-row-1 grid-cols-5 h-[90%] border border-white">
+            <div class="col-start-1 col-end-3 text-center">
+                <br>
+                <h2>CHECK THE POLLUTION LEVEL BASED ON LATITUDE AND LONGITUDE</h2>
+                <br>
+                <div class="block p-5 px-auto text-center">
+                    <label for="latinput" class="text-left">Latitude:</label>
+                    <br> 
+                    <input id="latinput" class="border border-black text-right">
+                    <br>
+                    <label for='loninput'>Longitude:</label>
+                    <br> <input id="loninput"  class="border border-black">
+                    <br><br>
                     <button onclick="getpollutionlatlon()" class="border-black cursor-pointer pl-3 pr-3 rounded-lg bg-white hover:scale-105">Click Here</button>
-                </form>   
+                </div>   
             </div>
-            <div class="col-start-3 col-end-5 col-span-3 hidden relative border border-white" id="textpollutioncontainer">
-                <button class="absolute -top-3 -right-3 cursor-pointer" onclick="closetextpollutioncontainer()"><i class="fa-solid fa-circle-xmark"></i></button>
-                <p id="textpollution"></p>
+            <div class="col-start-3 col-end-6 col-span-4 hidden relative" id="textpollutioncontainer">
+                
+                <div class="w-[95%] p-5 h-[95%]" id="textpollution"></div>
             </div>
 
         </div>
