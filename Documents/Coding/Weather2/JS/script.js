@@ -112,7 +112,7 @@ async function setthreecitythree(){
 
 setTimeout(setthreecitythree(),0);  
 
-const bannerbackgroundimage = [ 'url("./asset/kinderdijk.png")', 'url("./asset/jiuzhaigou.jpg")', 'url("./asset/grandcanyon.jpg")', 'url("./asset/Harbin-4.jpg")', 'url("./asset/rinjani.jpg")']
+const bannerbackgroundimage = [ 'url("./asset/kinderdijk2..jpg")', 'url("./asset/jizhaigou2.jpg")', 'url("./asset/grandcanyon.jpg")', 'url("./asset/Harbin-4.jpg")', 'url("./asset/rinjani.jpg")', 'url("./asset/interlaken.jpg")', 'url("./asset/halongbay.jpg")', 'url("./asset/iceland.jpg")', 'url("./asset/aurora.jpg")']
 let currentIndex=0;
 
 function changebannerbackground(){
