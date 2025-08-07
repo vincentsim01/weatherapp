@@ -5,14 +5,84 @@ const textchangecontainer = document.getElementById('textchangecontainer');
 
 async function getweatherfunction(){
     const citytextinput = document.getElementById('citytextinput');
+
     const weatherdata = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${citytextinput.value}&appid=286ad2f78fee5038e5f4c39b2c60a946`)
     const data = await weatherdata.json();
     textchangecontainer.classList.remove('hidden');
-    changetext.innerHTML = `${data.sys.country} <br> ${data.name} <br> ${data.main.temp} F`;
+    changetext.innerHTML = `
+        <div class='border-white'>
+            <img class='w-[20px] mx-auto' src='./asset/${data.sys.country}.png'>
+            <br>
+            <p >${data.sys.country}</p>
+            <br> 
+            <p class='text-2xl'>${data.name} </p>
+            <br> 
+            ${data.main.temp} F
+        </div>
+
+        `;
 }
+
+async function getpollutionlatlon(){
+    const textpollution = document.getElementById('textpollution');
+    const textpollutioncontainer = document.getElementById('textpollutioncontainer');
+    const lat = document.getElementById('latinput').value;
+    const lon = document.getElementById('loninput').value;
+    const pollutionlatlon = await fetch(`http://api.openweathermap.org/data/2.5/air_pollution?lat=${lat}&lon=${lon}&appid=286ad2f78fee5038e5f4c39b2c60a946`);
+    const data = await pollutionlatlon.json();
+    textpollutioncontainer.classList.remove('hidden');
+    textpollution.innerHTML=`
+    <div>
+    <table class='border border-white'>
+    <tr>
+    <th>Chemical</th>
+    <th>Concentration</th>
+    </tr>
+    <tr>
+    <td>
+    CO
+    </td>
+    <td>
+    ${data.list[0].components.co}
+    </td>
+    </tr>
+    <tr>
+    <td>
+    NO
+    </td>
+    <td>
+    ${data.list[0].components.no}
+    </td>
+    </tr>
+    <tr>
+    <td>
+    NO2
+    </td>
+    <td>
+    ${data.list[0].components.no2}
+    </td>
+    </tr>
+    <tr>
+    <td>
+    O3
+    </td>
+    <td>
+    ${data.list[0].components.o3}
+    </td>
+    </tr>
+    </table>
+    </div>`;
+}
+
 
 function closetextchangecontainer(){
     textchangecontainer.classList.toggle('hidden');
+}
+
+function closetextpollutioncontainer(){
+    const textpollutioncontainer = document.getElementById('textpollutioncontainer');
+    textpollutioncontainer.classList.add('hidden')
+
 }
 
 getweatherbutton.addEventListener('click',getweatherfunction);
@@ -20,7 +90,7 @@ getweatherbutton.addEventListener('click',getweatherfunction);
 async function setthreecityone(){
     const weatherdata = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=Jakarta&appid=286ad2f78fee5038e5f4c39b2c60a946`)
     const data = await weatherdata.json();
-    document.getElementById('threecityone').innerHTML= `<img src="./asset/indonesia.png" class="w-[20px] rounded-full border border-white shadow-3xl mx-auto"></img><br>${data.sys.country} <br> <b>${data.name}</b> <br> ${data.main.temp} F`;
+    document.getElementById('threecityone').innerHTML= `<img src="./asset/id.png" class="w-[20px] rounded-full border border-white shadow-3xl mx-auto"></img><br>${data.sys.country} <br> <b>${data.name}</b> <br> ${data.main.temp} F`;
 }
 
 setTimeout(setthreecityone(),0);  
@@ -28,7 +98,7 @@ setTimeout(setthreecityone(),0);
 async function setthreecitytwo(){
     const weatherdata = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=Copenhagen&appid=286ad2f78fee5038e5f4c39b2c60a946`)
     const data = await weatherdata.json();
-    document.getElementById('threecitytwo').innerHTML= `<img src="./asset/denmark.png" class="w-[20px] rounded-full border border-white shadow-3xl mx-auto"></img><br>${data.sys.country} <br> <b>${data.name}</b> <br> ${data.main.temp} F`;
+    document.getElementById('threecitytwo').innerHTML= `<img src="./asset/dk.png" class="w-[20px] rounded-full border border-white shadow-3xl mx-auto"></img><br>${data.sys.country} <br> <b>${data.name}</b> <br> ${data.main.temp} F`;
 }
 
 setTimeout(setthreecitytwo(),0); 
@@ -37,7 +107,7 @@ setTimeout(setthreecitytwo(),0);
 async function setthreecitythree(){
     const weatherdata = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=Amsterdam&appid=286ad2f78fee5038e5f4c39b2c60a946`)
     const data = await weatherdata.json();
-    document.getElementById('threecitythree').innerHTML= `<img src="./asset/netherlands.png" class="w-[20px] rounded-full border border-white shadow-3xl mx-auto"></img><br>${data.sys.country} <br> <b>${data.name}</b> <br> ${data.main.temp} F`;
+    document.getElementById('threecitythree').innerHTML= `<img src="./asset/nl.png" class="w-[20px] rounded-full border border-white shadow-3xl mx-auto"></img><br>${data.sys.country} <br> <b>${data.name}</b> <br> ${data.main.temp} F`;
 }
 
 setTimeout(setthreecitythree(),0);  
