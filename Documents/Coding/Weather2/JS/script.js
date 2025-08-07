@@ -28,11 +28,14 @@ async function getpollutionlatlon(){
     const textpollutioncontainer = document.getElementById('textpollutioncontainer');
     const lat = document.getElementById('latinput').value;
     const lon = document.getElementById('loninput').value;
+    const weatherdata = await fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=286ad2f78fee5038e5f4c39b2c60a946`);
+    const weatherdatajson = await weatherdata.json();
     const pollutionlatlon = await fetch(`http://api.openweathermap.org/data/2.5/air_pollution?lat=${lat}&lon=${lon}&appid=286ad2f78fee5038e5f4c39b2c60a946`);
     const data = await pollutionlatlon.json();
     textpollutioncontainer.classList.remove('hidden');
     textpollution.innerHTML=`
-    <div class='w-[70%] flex justify-center items-center mx-auto  border border-white relative '>
+    <div class='w-[70%]  mx-auto  border border-white relative text-center'>
+    <h2 class='mx-auto' >Here is The Pollution Level In ${weatherdatajson.name}</h2>
    
     <table class='w-[70%] text-center mx-auto'>
      <button class="absolute top-0 right-0 cursor-pointer" onclick="closetextpollutioncontainer()"><i class="fa-solid fa-circle-xmark"></i></button>
@@ -70,6 +73,38 @@ async function getpollutionlatlon(){
     </td>
     <td>
     ${data.list[0].components.o3}
+    </td>
+    </tr>
+    <tr>
+    <td>
+    SO2
+    </td>
+    <td>
+    ${data.list[0].components.so2}
+    </td>
+    </tr>
+    <tr>
+    <td>
+    PM2_5
+    </td>
+    <td>
+    ${data.list[0].components.pm2_5}
+    </td>
+    </tr>
+    <tr>
+    <td>
+    PM10
+    </td>
+    <td>
+    ${data.list[0].components.pm10}
+    </td>
+    </tr>
+    <tr>
+    <td>
+    NH3
+    </td>
+    <td>
+    ${data.list[0].components.nh3}
     </td>
     </tr>
     </table>
