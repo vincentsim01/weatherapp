@@ -4,8 +4,11 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap" rel="stylesheet">
     <link rel="icon" href="./asset//icons8-weather-100.png" type="image/png" />
     <meta property="og:title" content="Weather App Vincent" />
     <meta property="og:description" content="A short description of your page." />
@@ -23,6 +26,9 @@
         .font-josefinsans {
             font-family: 'Josefin Sans', sans-serif;
         }
+        .font-permanentmarker {
+            font-family: 'Permanent Marker', sans-serif;
+        }
       </style>
 
     <title>Weather App Vincent</title>
@@ -38,7 +44,7 @@
             <i class="fa-solid fa-sun fa-1x animate-bounce"></i>
             <br>
             <div class="flex justify-center items-center text-center">
-                <h1 class="text-4xl text-black font-roboto mb-3 shadow-4xl"><b><u>WEATHER APP</u></b></h1>
+                <h1 class="text-4xl text-black font-josefinsans mb-3 shadow-4xl"><b><u>WEATHER APP</u></b></h1>
             </div>
         </div>
         <div class="flex justify-between font-roboto">
@@ -51,7 +57,7 @@
     <main id="mainbanner" class=" shadow-md block text-center relative bg-cover bg-no-repeat bg-top md:h-[100vh] h-[50vh] z-0">
         <div id="banneroverlay" class="absolute w-[100%] h-[100%] bg-black/20 -z-1"></div>
         <br>
-            <h2 class="text-white mt-15 shadow-lg text-3xl">Let's find the weather for a city that you love...</h2>
+            <h2 class="text-white mt-15 shadow-lg text-5xl font-permanentmarker"><b>Let's find the weather for a place that you <span id="changelove"></span>.</b></h2>
         <br>
         <div class=" rounded-md z-3 h-[30%] flex justify-center items-center">
             <input type="text" id="citytextinput" placeholder="insert the city name" class="border border-white rounded-md text-white pl-3 pr-3 mr-3 z-5">
@@ -73,20 +79,18 @@
 
 
     </section>
-    <section class="w-[100%] mt-5 p-5 md:h-[40vh] border-white bg-blue-500 font-roboto ">
-        <div class="grid grid-row-1 grid-cols-5">
-            <div class="col-start-1 col-end-2">
-                <div class="block border-white p-5">
-
-                    Latitude: <input id="latinput" class="border border-black">
-                    Longitude: <input id="loninput"  class="border border-black">
-                    <button onclick="getpollutionlatlon()" class="border-black cursor-pointer rounded-md bg-white">Click Here</button>
-                </div>   
+    <section class="w-[100%] mt-5 p-5 md:h-[40vh] bg-blue-500 font-roboto ">
+        <div class="grid grid-row-1 grid-cols-5 border border-white">
+            <div class="col-start-1 col-end-3 border border-white">
+                <form class="block border-white p-5 px-auto">
+                    <label for="latinput" class="text-left">Latitude:</label> <input id="latinput" class="border border-black text-right">
+                    <label for='loninput'>Longitude:</label> <input id="loninput"  class="border border-black">
+                    <button onclick="getpollutionlatlon()" class="border-black cursor-pointer pl-3 pr-3 rounded-lg bg-white hover:scale-105">Click Here</button>
+                </form>   
             </div>
-            <div class="col-start-2 col-end-5 col-span-3 hidden relative" id="textpollutioncontainer">
+            <div class="col-start-3 col-end-5 col-span-3 hidden relative border border-white" id="textpollutioncontainer">
                 <button class="absolute -top-3 -right-3 cursor-pointer" onclick="closetextpollutioncontainer()"><i class="fa-solid fa-circle-xmark"></i></button>
                 <p id="textpollution"></p>
-
             </div>
 
         </div>

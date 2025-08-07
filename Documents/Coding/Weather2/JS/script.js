@@ -32,7 +32,7 @@ async function getpollutionlatlon(){
     const data = await pollutionlatlon.json();
     textpollutioncontainer.classList.remove('hidden');
     textpollution.innerHTML=`
-    <div>
+    <div class='w-[100%]'>
     <table class='border border-white'>
     <tr>
     <th>Chemical</th>
@@ -126,4 +126,21 @@ function changebannerbackground(){
 setInterval(changebannerbackground,3000);
 
 changebannerbackground();
+
+
+const loveword = ['LOVE', 'CARE', 'REMEMBER', 'DREAM OF', 'LIKE', 'PROMOTE', 'RECOMMEND', 'SEARCH FOR', 'FIGHT FOR', 'CHERISH', 'CLING ON', 'TRUST', 'ADORE', 'SEEK FOR', 'BELIEVE IN', 'LOOK FORWARD TO', 'CONSIDER HOME', 'HOPE', 'BRING WARMTH'];
+
+
+let changeloveindex = 0;
+
+function changelovefunction(){
+    let changelove = document.getElementById('changelove');
+    changelove.innerHTML = loveword[changeloveindex];
+    changeloveindex = (changeloveindex+1)% loveword.length;
+}
+
+setInterval(changelovefunction,1000);
+
+changelovefunction();
+
 
