@@ -5,6 +5,7 @@ const textchangecontainer = document.getElementById('textchangecontainer');
 const selectweathermethod = document.getElementById('selectweathermethod');
 const weathercitycontainer = document.getElementById('weathercitycontainer');
 const weatherlatloncontainer = document.getElementById('weatherlatloncontainer');
+const getlatlonweatherbutton = document.getElementById('getlatlonweatherbutton');
 
 
 
@@ -24,8 +25,26 @@ async function getweatherfunction(){
             <br> 
             ${data.main.temp} F
         </div>
-
         `;
+}
+
+async function getweatherlatlonfunction(){
+    const latweatherinput = document.getElementById('latweatherinput');
+    const longweatherinput = document.getElementById('longweatherinput');
+    const weatherdata = await fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${latweatherinput.value}&lon=${longweatherinput.value}&appid=286ad2f78fee5038e5f4c39b2c60a946`);
+    const data = await weatherdata.json();
+    textchangecontainer.classList.remove('hidden');
+    changetext.innerHTML = `
+      <div class='border-white'>
+            <img class='w-[20px] mx-auto' src='./asset/${data.sys.country}.png'>
+            <br>
+            <p >${data.sys.country}</p>
+            <br> 
+            <p class='text-2xl'>${data.name} </p>
+            <br> 
+            ${data.main.temp} F
+        </div>
+    `;
 }
 
 async function getpollutionlatlon(){
@@ -128,6 +147,8 @@ function closetextpollutioncontainer(){
 }
 
 getweatherbutton.addEventListener('click',getweatherfunction);
+getlatlonweatherbutton.addEventListener('click', getweatherlatlonfunction);
+
 
 async function setthreecityone(){
     const weatherdata = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=Jakarta&appid=286ad2f78fee5038e5f4c39b2c60a946`)
