@@ -11,7 +11,12 @@ const timenowday = timenow.getDay();
 const timenowdate = timenow.getDate();
 const timenowmonth = timenow.getMonth();
 const timenowyear = timenow.getFullYear();
+const timenowhour = timenow.getHours();
+const timenowmin = timenow.getMinutes();
+const timenowsec = timenow.getSeconds();
 
+const dayarray = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
+const montharray = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
 
 
 async function getweatherfunction(){
@@ -22,17 +27,33 @@ async function getweatherfunction(){
     textchangecontainer.classList.remove('hidden');
     changetext.innerHTML = `
         <div class='border-white'>
-            <p>
-            ${timenowday}, ${timenowdate} ${timenowmonth} ${timenowyear}
+            <p class='text-xs'>
+                ${dayarray[timenowday-1]}, ${timenowdate} ${montharray[timenowmonth-1]} ${timenowyear} - ${timenowhour}:${timenowmin}:${timenowsec}
             </p>
             <br>
-            <img class='w-[20px] mx-auto' src='./asset/${data.sys.country}.png'>
+            <p>
+                ${data.weather[0].main} - ${data.weather[0].description}
+            </p>
             <br>
-            <p >${data.sys.country}</p>
+                <img class='w-[20px] mx-auto' src='./asset/${data.sys.country}.png'>
+                <p>${data.sys.country}</p>
             <br> 
-            <p class='text-2xl'>${data.name} </p>
+                <p class='text-2xl'>${data.name} </p>
             <br> 
-            ${data.main.temp} F
+            <div class='flex justify-between items-center font-roboto'>
+                <div class='pr-5'>
+                    <p class='mx-auto'>Pressure</p>
+                    ${data.main.pressure}
+                </div>
+                <div class='w-[40%] border-l border-r'>
+                    <p class='mx-auto'>Temperature</p>
+                    ${data.main.temp} F
+                </div>
+                <div class='pl-5'>
+                    <p class='mx-auto'>Humidity</p>
+                    ${data.main.humidity}
+                </div>
+            </div>
         </div>
         `;
 }
@@ -45,13 +66,25 @@ async function getweatherlatlonfunction(){
     textchangecontainer.classList.remove('hidden');
     changetext.innerHTML = `
       <div class='border-white'>
-            <img class='w-[20px] mx-auto' src='./asset/${data.sys.country}.png'>
+            <p class='text-xs'>
+                ${dayarray[timenowday-1]}, ${timenowdate} ${montharray[timenowmonth-1]} ${timenowyear} - ${timenowhour}:${timenowmin}:${timenowsec}
+            </p>
             <br>
-            <p >${data.sys.country}</p>
+            <p>
+                ${data.weather[0].main} - ${data.weather[0].description}
+            </p>
+            <br>
+                <img class='w-[20px] mx-auto' src='./asset/${data.sys.country}.png'>
+                <p>${data.sys.country}</p>
             <br> 
-            <p class='text-2xl'>${data.name} </p>
+                <p class='text-2xl'>${data.name} </p>
             <br> 
-            ${data.main.temp} F
+            <div>
+
+                        ${data.main.temp} F
+            
+            </div>
+
         </div>
     `;
 }
