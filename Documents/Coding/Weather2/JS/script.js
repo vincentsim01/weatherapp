@@ -77,26 +77,34 @@ async function getweatherlatlonfunction(){
     const data = await weatherdata.json();
     textchangecontainer.classList.remove('hidden');
     changetext.innerHTML = `
-      <div class='border-white'>
+       <div class='border-white w-[100%]'>
             <p class='text-xs'>
                 ${dayarray[timenowday-1]}, ${timenowdate} ${montharray[timenowmonth-1]} ${timenowyear} - ${timenowhour}:${timenowmin}:${timenowsec}
-            </p>
-            <br>
-            <p>
-                ${data.weather[0].main} - ${data.weather[0].description}
             </p>
             <br>
                 <img class='w-[20px] mx-auto' src='./asset/${data.sys.country}.png'>
                 <p>${data.sys.country}</p>
             <br> 
-                <p class='text-2xl'>${data.name} </p>
+                <p class='text-2xl font-josefinsans'>${data.name} </p>
             <br> 
-            <div>
-
-                        ${data.main.temp} F
-            
+            <p>
+                ${data.weather[0].main} - ${data.weather[0].description}
+            </p>
+            <br>
+            <div class='flex justify-between items-center font-roboto'>
+                <div class='pr-5'>
+                    <p class='mx-auto'>Pressure</p>
+                    ${data.main.pressure} psi
+                </div>
+                <div class='w-[40%] border-l border-r'>
+                    <p class='mx-auto'>Temperature</p>
+                    ${data.main.temp} F
+                </div>
+                <div class='pl-5'>
+                    <p class='mx-auto'>Humidity</p>
+                    ${data.main.humidity} %
+                </div>
             </div>
-
         </div>
     `;
 }

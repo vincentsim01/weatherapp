@@ -41,27 +41,29 @@
         </div>
         <nav class="hidden absolute bg-blue-500 w-[70%] top-[10%] h-[100vh] pt-3 pl-3 z-51 shadow-lg" id="navmobile">
             <button class="absolute -top-3 -right-3 bg-white border border-black cursor-pointer rounded-full Z-52" id="navmobileclosebutton"><i class="fa-solid fa-xmark"></i></button>
-            <div class="w-[90%] mb-3 mt-3 border-b border-white text-black"><a href='#'>Home</a></div>
-            <div class="w-[90%] mb-3 mt-3 border-b border-white text-black"><a href='#'>About</a></div>
-            <div class="w-[90%] mb-3 mt-3 border-b border-white text-black"><a href='#'>Contact</a></div>
+            <div class="w-[90%] mb-3 mt-3 border-b border-white text-black"><a href='#'  class="hover:underline">Home</a></div>
+            <div class="w-[90%] mb-3 mt-3 border-b border-white text-black"><a href='#'  class="hover:underline">About</a></div>
+            <div class="w-[90%] mb-3 mt-3 border-b border-white text-black"><a href='#'  class="hover:underline">Contact</a></div>
         </nav> 
 
-        <nav class="md:flex md:justify-center hidden gap-5 font-roboto" id="navdesktop">
-            <a href="#">Home</a>
-            <a href="#">About Us</a>
-            <a href="#">Contact</a>
+        <nav class="md:flex md:justify-center hidden pl-5 gap-5 font-roboto" id="navdesktop">
+            <a href="#" class="hover:underline">Home</a>
+            <a href="#" class="hover:underline">About Us</a>
+            <a href="#" class="hover:underline">Contact</a>
         </nav>
         <div class="w-[40%]">
-            <i class="fa-solid fa-sun fa-1x animate-bounce"></i>
+
             <br>
             <div class="flex justify-center items-center text-center">
-                <h1 class="md:text-4xl text-md text-black font-josefinsans mb-3 shadow-4xl"><b><u>WEATHER APP</u></b></h1>
+                <i class="fa-solid fa-sun fa-1x animate-bounce"></i>
+                <h1 class="md:text-4xl text-md text-black font-josefinsans mb-3 shadow-4xl hover:scale-102 cursor-pointer"><b><u>WEATHER APP</u></b></h1>
+                <i class="fa-solid fa-sun fa-1x animate-bounce"></i>
             </div>
         </div>
         <div class="flex justify-between font-roboto">
             <p class="mr-3"><a><i class="fa-solid fa-user-tie"></i></a></p>
             <input type="text" placeholder="search here" class="pl-2 pr-2 hidden md:block border rounded-md mr-3">
-            <button class="bg-white text-black rounded-full pl-4 pr-4 hover:scale-105 hover:bg-black hover:text-white cursor-pointer hidden"><i class="fa-solid fa-magnifying-glass"></i></button>
+            <button class="bg-white text-black rounded-full pl-4 pr-4 hover:scale-105 hover:bg-black hover:text-white cursor-pointer hidden md:block"><i class="fa-solid fa-magnifying-glass"></i></button>
         </div>
     </header>
 
@@ -86,13 +88,13 @@
             </div>
 
             <div class=" rounded-md mt-6 z-3 h-[30%] flex justify-center items-center hidden" id="weatherlatloncontainer">
-                <input type="Number" id="latweatherinput" placeholder="insert the latitude" class="border-b border-white text-white pl-3 pr-3 mr-3 z-5 font-roboto">
-                <input type="Number" id="longweatherinput" placeholder="insert the longitude" class="border-b border-white text-white pl-3 pr-3 mr-3 z-5 font-roboto">
-                <button id="getlatlonweatherbutton" class=" rounded-md bg-blue-500 text-white pl-3 pr-3 hover:scale-105 hover:text-white hover:bg-black cursor-pointer z-10 font-roboto"><i class="fa-solid fa-cloud-sun"></i></button>
+                <input type="Number" id="latweatherinput" placeholder="insert the latitude" class="border-b border-white text-white pl-3 pr-3 mr-3 z-5 font-roboto text-2xl">
+                <input type="Number" id="longweatherinput" placeholder="insert the longitude" class="border-b border-white text-white pl-3 pr-3 mr-3 z-5 font-roboto text-2xl">
+                <button id="getlatlonweatherbutton" class=" rounded-full p-3 bg-blue-500 text-white hover:scale-105 hover:text-white hover:bg-black cursor-pointer z-10 font-roboto"><i class="fa-solid fa-magnifying-glass-location"></i></i></button>
             </div>
             <div class=" rounded-md mt-6 z-3 h-[30%] flex justify-center items-center hidden" id="weathercitycontainer">
                 <input type="text" id="citytextinput" placeholder="insert the city name" class="border-b border-white text-white pl-3 pr-3 mr-3 z-5 font-roboto text-2xl">
-                <button id="getweatherbutton" class=" rounded-md bg-blue-500 text-white pl-4 pr-4 hover:scale-105 hover:text-white hover:bg-black cursor-pointer z-10 font-roboto text-2xl"><i class="fa-solid fa-cloud-sun"></i></button>
+                <button id="getweatherbutton" class=" rounded-full p-3 bg-blue-500 text-white hover:scale-105 hover:text-white hover:bg-black cursor-pointer z-10 font-roboto text-2xl"><i class="fa-solid fa-magnifying-glass-location"></i></i></button>
             </div>
         
 
