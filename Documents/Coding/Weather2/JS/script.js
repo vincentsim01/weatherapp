@@ -6,6 +6,11 @@ const selectweathermethod = document.getElementById('selectweathermethod');
 const weathercitycontainer = document.getElementById('weathercitycontainer');
 const weatherlatloncontainer = document.getElementById('weatherlatloncontainer');
 const getlatlonweatherbutton = document.getElementById('getlatlonweatherbutton');
+const timenow = new Date();
+const timenowday = timenow.getDay();
+const timenowdate = timenow.getDate();
+const timenowmonth = timenow.getMonth();
+const timenowyear = timenow.getFullYear();
 
 
 
@@ -17,6 +22,10 @@ async function getweatherfunction(){
     textchangecontainer.classList.remove('hidden');
     changetext.innerHTML = `
         <div class='border-white'>
+            <p>
+            ${timenowday}, ${timenowdate} ${timenowmonth} ${timenowyear}
+            </p>
+            <br>
             <img class='w-[20px] mx-auto' src='./asset/${data.sys.country}.png'>
             <br>
             <p >${data.sys.country}</p>
