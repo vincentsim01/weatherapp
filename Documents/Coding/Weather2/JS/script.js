@@ -2,6 +2,11 @@ const getweatherbutton = document.getElementById('getweatherbutton');
 const changetext = document.getElementById('changetext');
 const citytextinput = document.getElementById('citytextinput').value;
 const textchangecontainer = document.getElementById('textchangecontainer');
+const selectweathermethod = document.getElementById('selectweathermethod');
+const weathercitycontainer = document.getElementById('weathercitycontainer');
+const weatherlatloncontainer = document.getElementById('weatherlatloncontainer');
+
+
 
 async function getweatherfunction(){
     const citytextinput = document.getElementById('citytextinput');
@@ -180,4 +185,18 @@ setInterval(changelovefunction,1000);
 
 changelovefunction();
 
-
+selectweathermethod.addEventListener("change", (e) =>{
+    if(e.target.value == 'city'){
+        weathercitycontainer.classList.remove('hidden');
+        weatherlatloncontainer.classList.add('hidden');
+    }else if(e.target.value == 'latlon'){
+        weatherlatloncontainer.classList.remove('hidden');
+        weathercitycontainer.classList.add('hidden');
+    }else if(e.target.value == 'none'){
+        weathercitycontainer.classList.add('hidden');
+        weatherlatloncontainer.classList.add('hidden');
+    }else{
+        weathercitycontainer.classList.add('hidden');
+        weatherlatloncontainer.classList.add('hidden');
+    }
+})

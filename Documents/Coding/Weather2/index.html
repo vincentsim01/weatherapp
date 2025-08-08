@@ -59,10 +59,32 @@
         <br>
             <h2 class="text-white mt-15 shadow-lg text-5xl font-permanentmarker"><b>Let's find the weather for a place that you <span id="changelove"></span>.</b></h2>
         <br>
-        <div class=" rounded-md z-3 h-[30%] flex justify-center items-center">
-            <input type="text" id="citytextinput" placeholder="insert the city name" class="border border-white rounded-md text-white pl-3 pr-3 mr-3 z-5">
-            <button id="getweatherbutton" class=" rounded-md bg-blue-500 text-white pl-3 pr-3 hover:scale-105 hover:text-white hover:bg-black cursor-pointer z-10">Get Weather</button>
+        <div>
+            <label for="selectweathermethod" class="text-white font-roboto">Choose Your Method By:</label>
+            <select id="selectweathermethod"">
+                <option value="none" default>
+                    None
+                </option>
+                <option value="city">
+                    City
+                </option>
+                <option value="latlon">
+                    Latitude & Longitude
+                </option>
+            </select>
         </div>
+
+            <div class=" rounded-md z-3 h-[30%] flex justify-center items-center hidden" id="weatherlatloncontainer">
+                <input type="text" id="latweatherinput" placeholder="insert the latitude" class="border border-white rounded-md text-white pl-3 pr-3 mr-3 z-5">
+                <input type="text" id="longweatherinput" placeholder="insert the longitude" class="border border-white rounded-md text-white pl-3 pr-3 mr-3 z-5">
+                <button id="getlatlonweatherbutton" class=" rounded-md bg-blue-500 text-white pl-3 pr-3 hover:scale-105 hover:text-white hover:bg-black cursor-pointer z-10">Get Weather</button>
+            </div>
+            <div class=" rounded-md z-3 h-[30%] flex justify-center items-center hidden" id="weathercitycontainer">
+                <input type="text" id="citytextinput" placeholder="insert the city name" class="border border-white rounded-md text-white pl-3 pr-3 mr-3 z-5">
+                <button id="getweatherbutton" class=" rounded-md bg-blue-500 text-white pl-3 pr-3 hover:scale-105 hover:text-white hover:bg-black cursor-pointer z-10">Get Weather</button>
+            </div>
+        
+
        <div class=" rounded-lg h-[20vh] flex justify-center items-center hidden" id="textchangecontainer">
             <div class="relative bg-blue-500 w-[20%] h-[auto] rounded-lg pt-5 pb-5 md:p-5 shadow-lg">
                 <button class="absolute -top-3 -right-3 cursor-pointer" onclick="closetextchangecontainer()"><i class="fa-solid fa-circle-xmark"></i></button>
