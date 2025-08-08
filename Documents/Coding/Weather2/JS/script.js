@@ -48,7 +48,8 @@ const countryobject = {
     "VN":"Vietnam",
     "EG":"Egypt",
     "TR":"Turkey",
-    "BR":"Brazil"
+    "BR":"Brazil",
+    "NL":"Netherlands"
 }
 
 async function getweatherfunction(){
@@ -292,16 +293,21 @@ setInterval(changelovefunction,1000);
 changelovefunction();
 
 selectweathermethod.addEventListener("change", (e) =>{
+    textchangecontainer.classList.add('hidden');
     if(e.target.value == 'city'){
+
         weathercitycontainer.classList.remove('hidden');
         weatherlatloncontainer.classList.add('hidden');
     }else if(e.target.value == 'latlon'){
+
         weatherlatloncontainer.classList.remove('hidden');
         weathercitycontainer.classList.add('hidden');
     }else if(e.target.value == 'none'){
+
         weathercitycontainer.classList.add('hidden');
         weatherlatloncontainer.classList.add('hidden');
     }else{
+
         weathercitycontainer.classList.add('hidden');
         weatherlatloncontainer.classList.add('hidden');
     }
