@@ -112,27 +112,56 @@
         <div class="thethreecity border border-white rounded-md w-[90%] md:w-[20%] p-4 m-3 shadow-md hover:scale-105 text-center transition-scale duration-300" id="threecitytwo"></div>
         <div class="thethreecity border border-white rounded-md w-[90%] md:w-[20%] p-4 m-3 shadow-md hover:scale-105 text-center transition-scale duration-300" id="threecitythree"></div>
     </section>
-    <section class="w-[100%] mt-5 p-5 md:h-[70vh] bg-blue-500 font-roboto ">
-        <div class=" block md:grid md:grid-row-1 md:grid-cols-5 md:h-[90%] border border-white">
-            <div class="col-start-1 col-end-3 text-center">
+    <section class="w-[100%] mt-5 p-5 md:h-[70vh] font-roboto text-white bg-[url('./asset/pollutionbackground.png')] bg-opacity-20 bg-center bg-cover bg-no-repeat block relative">
+
+        <div class=" block md:grid md:grid-row-1 md:grid-cols-5 md:h-[90%] border border-white z-0">
+            <div class="md:absolute top-0 left-0 w-[100%] h-[100%] bg-blue-500/40 z-2 md:z-1"></div>
+            <div class="col-start-1 col-end-3 text-center md:z-3">
                 <br>
-                <h2>CHECK THE POLLUTION LEVEL BASED ON LATITUDE AND LONGITUDE</h2>
+                <h2 class="text-4xl">CHECK THE POLLUTION LEVEL</h2>
                 <br>
                 <div class="block p-5 px-auto text-center">
                     <label for="latinput" class="text-left">Latitude:</label>
                     <br> 
-                    <input id="latinput" class="border border-black text-right">
+                    <input id="latinput" class="border-b border-black">
                     <br>
                     <label for='loninput'>Longitude:</label>
-                    <br> <input id="loninput"  class="border border-black">
+                    <br> <input id="loninput"  class="border-b border-black">
                     <br><br>
-                    <button onclick="getpollutionlatlon()" class="border-black cursor-pointer pl-3 pr-3 rounded-lg bg-white hover:scale-105">Click Here</button>
+                    <button onclick="getpollutionlatlon()" class="border-black cursor-pointer pl-3 pr-3 text-black rounded-lg bg-white hover:scale-105">Click Here</button>
                 </div>   
             </div>
-            <div class="md:col-start-3 md:col-end-6 md:col-span-4 hidden relative" id="textpollutioncontainer">
+            <div class="md:col-start-3 md:col-end-6 md:col-span-4 hidden relative z-2" id="textpollutioncontainer">
                 
-                <div class="w-[95%] p-5 h-[95%]" id="textpollution"></div>
+                <div class="w-[95%] p-5 md:p-10 h-[95%]" id="textpollution"></div>
             </div>
+
+        </div>
+    </section>
+
+    <section class="w-[100%] mt-5 p-5 md:h-[70vh] font-roboto text-white bg-[url('./asset/heat.jpg')] bg-opacity-20 bg-center bg-cover bg-no-repeat block relative">
+
+        <div class=" block md:grid md:grid-row-1 md:grid-cols-5 md:h-[90%] border border-white z-0">
+            <div class="md:absolute top-0 left-0 w-[100%] h-[100%] bg-blue-500/40 z-2 md:z-1"></div>
+            <div class="md:col-start-1 md:col-end-4 md:col-span-4 hidden relative z-2" id="heatcontainer">
+                <div class="w-[95%] p-5 md:p-10 h-[95%]" id="textheat"></div>
+            </div>
+            <div class="col-start-4 col-end-6 text-center md:z-3">
+                <br>
+                <h2 class="text-4xl">Fire Level</h2>
+                <br>
+                <div class="block p-5 px-auto text-center">
+                    <label for="latheatinput" class="text-left">Latitude:</label>
+                    <br> 
+                    <input id="latheatinput" class="border-b border-black">
+                    <br>
+                    <label for='lonheatinput'>Longitude:</label>
+                    <br> <input id="lonheatinput"  class="border-b border-black">
+                    <br><br>
+                    <button onclick="getheatlatlon()" class="border-black cursor-pointer pl-3 pr-3 text-black rounded-lg bg-white hover:scale-105">Click Here</button>
+                </div>   
+            </div>
+
 
         </div>
     </section>

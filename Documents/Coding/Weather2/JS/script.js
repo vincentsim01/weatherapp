@@ -145,9 +145,9 @@ async function getpollutionlatlon(){
     textpollutioncontainer.classList.remove('hidden');
     textpollution.innerHTML=`
     <div class='w-[70%]  mx-auto  border border-white relative text-center'>
-    <h2 class='mx-auto' >Here is The Pollution Level In ${weatherdatajson.name}</h2>
+    <h2 class='mx-auto' >Pollution Level In ${weatherdatajson.name}</h2>
    
-    <table class='w-[70%] text-center mx-auto'>
+    <table class='w-[70%] text-center mx-auto md:p-15'>
      <button class="absolute top-0 right-0 cursor-pointer" onclick="closetextpollutioncontainer()"><i class="fa-solid fa-circle-xmark"></i></button>
     <tr>
     <th>Chemical</th>
@@ -209,7 +209,7 @@ async function getpollutionlatlon(){
     ${data.list[0].components.pm10}
     </td>
     </tr>
-    <tr>
+    <tr class='mb-5'>
     <td>
     NH3
     </td>
@@ -221,6 +221,32 @@ async function getpollutionlatlon(){
     </div>`;
 }
 
+async function getheatlatlon(){
+    const heatcontainer = document.getElementById('heatcontainer');
+    const textheat = document.getElementById('textheat');
+    const lat = document.getElementById('latheatinput').value;
+    const lon = document.getElementById('lonheatinput').value;
+    const weatherdata = await fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=286ad2f78fee5038e5f4c39b2c60a946`);
+    const weatherdatajson = await weatherdata.json();
+    const heatlatlon = await fetch(`https://api.openweathermap.org/data/2.5/fwi?lat=${lat}&lon=${lon}&appid=286ad2f78fee5038e5f4c39b2c60a946`);
+    const data = await heatlatlon.json();
+    alert(data.coord.lon)
+    heatcontainer.classList.remove('hidden');
+    textheat.innerHTML=`
+    <div class='border border-white text-center'>
+        FIRE WEATHER INDEX
+        <br>
+        ${data.coord.lon}
+        ${data.list[0].main.fwi}
+        DANGER LEVEL
+        <br>
+         ${data.list[1].danger_rating.description} - ${data.list[1].danger_rating.value}
+    </div>
+    
+    `;
+
+}
+
 
 function closetextchangecontainer(){
     textchangecontainer.classList.toggle('hidden');
@@ -229,6 +255,12 @@ function closetextchangecontainer(){
 function closetextpollutioncontainer(){
     const textpollutioncontainer = document.getElementById('textpollutioncontainer');
     textpollutioncontainer.classList.add('hidden')
+
+}
+
+function closetextheatcontainer(){
+    const heatcontainer = document.getElementById('heatcontainer');
+    heatcontainer.classList.add('hidden')
 
 }
 
