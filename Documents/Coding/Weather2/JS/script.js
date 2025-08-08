@@ -14,6 +14,18 @@ const timenowyear = timenow.getFullYear();
 const timenowhour = timenow.getHours();
 const timenowmin = timenow.getMinutes();
 const timenowsec = timenow.getSeconds();
+const burgericon = document.getElementById('burgericon');
+const navmobile = document.getElementById('navmobile');
+const navmobileclosebutton = document.getElementById('navmobileclosebutton');
+
+burgericon.addEventListener('click', () => {
+    navmobile.classList.toggle('hidden');
+})
+
+navmobileclosebutton.addEventListener('click', () =>{
+    navmobile.classList.add('hidden');
+})
+
 
 const dayarray = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
 const montharray = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
@@ -26,24 +38,24 @@ async function getweatherfunction(){
     const data = await weatherdata.json();
     textchangecontainer.classList.remove('hidden');
     changetext.innerHTML = `
-        <div class='border-white'>
+        <div class='border-white w-[100%]'>
             <p class='text-xs'>
                 ${dayarray[timenowday-1]}, ${timenowdate} ${montharray[timenowmonth-1]} ${timenowyear} - ${timenowhour}:${timenowmin}:${timenowsec}
-            </p>
-            <br>
-            <p>
-                ${data.weather[0].main} - ${data.weather[0].description}
             </p>
             <br>
                 <img class='w-[20px] mx-auto' src='./asset/${data.sys.country}.png'>
                 <p>${data.sys.country}</p>
             <br> 
-                <p class='text-2xl'>${data.name} </p>
+                <p class='text-2xl font-josefinsans'>${data.name} </p>
             <br> 
+            <p>
+                ${data.weather[0].main} - ${data.weather[0].description}
+            </p>
+            <br>
             <div class='flex justify-between items-center font-roboto'>
                 <div class='pr-5'>
                     <p class='mx-auto'>Pressure</p>
-                    ${data.main.pressure}
+                    ${data.main.pressure} psi
                 </div>
                 <div class='w-[40%] border-l border-r'>
                     <p class='mx-auto'>Temperature</p>
@@ -51,7 +63,7 @@ async function getweatherfunction(){
                 </div>
                 <div class='pl-5'>
                     <p class='mx-auto'>Humidity</p>
-                    ${data.main.humidity}
+                    ${data.main.humidity} %
                 </div>
             </div>
         </div>
@@ -233,7 +245,7 @@ setInterval(changebannerbackground,3000);
 changebannerbackground();
 
 
-const loveword = ['LOVE', 'CARE', 'REMEMBER', 'DREAM OF', 'LIKE', 'PROMOTE', 'RECOMMEND', 'SEARCH FOR', 'FIGHT FOR', 'CHERISH', 'CLING ON', 'TRUST', 'ADORE', 'SEEK FOR', 'BELIEVE IN', 'LOOK FORWARD TO', 'CONSIDER HOME', 'HOPE', 'BRING WARMTH'];
+const loveword = ['LOVE', 'CARE', 'REMEMBER', 'DREAM OF', 'LIKE', 'PROMOTE', 'RECOMMEND', 'SEARCH FOR', 'FIGHT FOR', 'CHERISH', 'CLING ON', 'TRUST', 'ADORE', 'SEEK FOR', 'BELIEVE', 'LOOK FOR', 'CONSIDER HOME', 'HOPE', 'BRING WARMTH'];
 
 
 let changeloveindex = 0;

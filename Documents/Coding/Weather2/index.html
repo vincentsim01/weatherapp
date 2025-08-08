@@ -33,60 +33,71 @@
 
     <title>Weather App Vincent</title>
 </head>
-<body class="font-sans"> 
-    <header class="bg-white/45 w-[100%] h-[15vh] shadow-2xl sticky top-0 md:flex md:justify-evenly md:items-center z-50">
-        <nav class="flex justify-center gap-5 font-roboto">
+<body class="font-roboto relative">
+
+    <header class="bg-white/45 w-[100%] h-[15vh] shadow-2xl sticky top-0 flex justify-between items-center md:flex md:justify-between md:items-center z-40">
+        <div class="md:hidden cursor-pointer scale-105 z-40" id="burgericon">
+            <i class="fa-solid fa-bars"></i>
+        </div>
+        <nav class="hidden absolute bg-blue-500 w-[70%] top-[10%] h-[100vh] z-51 shadow-lg" id="navmobile">
+            <button class="absolute -top-3 -right-3 rounded-full Z-52" id="navmobileclosebutton"><i class="fa-solid fa-xmark"></i></button>
+            <div class="mb-3 mt-3 border-b border-white text-black"><a href='#'>Home</a></div>
+            <div class="mb-3 mt-3 border-b border-white text-black"><a href='#'>About</a></div>
+            <div class="mb-3 mt-3 border-b border-white text-black"><a href='#'>Contact</a></div>
+        </nav> 
+
+        <nav class="md:flex md:justify-center hidden gap-5 font-roboto" id="navdesktop">
             <a href="#">Home</a>
             <a href="#">About Us</a>
             <a href="#">Contact</a>
         </nav>
-        <div class="">
+        <div class="w-[40%]">
             <i class="fa-solid fa-sun fa-1x animate-bounce"></i>
             <br>
             <div class="flex justify-center items-center text-center">
-                <h1 class="text-4xl text-black font-josefinsans mb-3 shadow-4xl"><b><u>WEATHER APP</u></b></h1>
+                <h1 class="md:text-4xl text-md text-black font-josefinsans mb-3 shadow-4xl"><b><u>WEATHER APP</u></b></h1>
             </div>
         </div>
         <div class="flex justify-between font-roboto">
             <p class="mr-3"><a><i class="fa-solid fa-user-tie"></i></a></p>
             <input type="text" placeholder="search here" class="pl-2 pr-2 hidden md:block border rounded-md mr-3">
-            <button class="bg-white text-black rounded-full pl-4 pr-4 hover:scale-105 hover:bg-black hover:text-white cursor-pointer"><i class="fa-solid fa-magnifying-glass"></i></button>
+            <button class="bg-white text-black rounded-full pl-4 pr-4 hover:scale-105 hover:bg-black hover:text-white cursor-pointer hidden"><i class="fa-solid fa-magnifying-glass"></i></button>
         </div>
     </header>
 
-    <main id="mainbanner" class=" shadow-md block text-center relative bg-cover bg-no-repeat bg-top md:h-[100vh] h-[50vh] z-0">
+    <main id="mainbanner" class=" shadow-md block text-center relative bg-cover bg-no-repeat bg-top md:h-[100vh] h-[100vh] z-0">
         <div id="banneroverlay" class="absolute w-[100%] h-[100%] bg-black/20 -z-1"></div>
         <br>
-            <h2 class="text-white mt-15 shadow-lg text-5xl font-permanentmarker"><b>Let's find the weather for a place that you <span id="changelove"></span>.</b></h2>
+            <h2 class="text-white mt-15 shadow-lg text-md md:text-5xl font-permanentmarker"><b>Let's find the weather for a place that you <span id="changelove"></span>.</b></h2>
         <br>
-        <div>
-            <label for="selectweathermethod" class="text-white font-permanentmarker">Find Your Location By:</label>
-            <select id="selectweathermethod" class="font-permanentmarker bg-white rounded-lg">
-                <option value="none" default class="rounded-md">
-                    None
-                </option>
-                <option value="city">
-                    City
-                </option>
-                <option value="latlon">
-                    Latitude & Longitude
-                </option>
-            </select>
-        </div>
-
-            <div class=" rounded-md z-3 h-[30%] flex justify-center items-center hidden" id="weatherlatloncontainer">
-                <input type="Number" id="latweatherinput" placeholder="insert the latitude" class="border border-white rounded-md text-white pl-3 pr-3 mr-3 z-5">
-                <input type="Number" id="longweatherinput" placeholder="insert the longitude" class="border border-white rounded-md text-white pl-3 pr-3 mr-3 z-5">
-                <button id="getlatlonweatherbutton" class=" rounded-md bg-blue-500 text-white pl-3 pr-3 hover:scale-105 hover:text-white hover:bg-black cursor-pointer z-10">Get Weather</button>
+            <div>
+                <label for="selectweathermethod" class="text-white font-permanentmarker">Find Your Location By:</label>
+                <select id="selectweathermethod" class="font-permanentmarker bg-white rounded-lg">
+                    <option value="none" default class="rounded-md">
+                        None
+                    </option>
+                    <option value="city">
+                        City
+                    </option>
+                    <option value="latlon">
+                        Latitude & Longitude
+                    </option>
+                </select>
             </div>
-            <div class=" rounded-md z-3 h-[30%] flex justify-center items-center hidden" id="weathercitycontainer">
-                <input type="text" id="citytextinput" placeholder="insert the city name" class="border border-white rounded-md text-white pl-3 pr-3 mr-3 z-5">
-                <button id="getweatherbutton" class=" rounded-md bg-blue-500 text-white pl-3 pr-3 hover:scale-105 hover:text-white hover:bg-black cursor-pointer z-10">Get Weather</button>
+
+            <div class=" rounded-md mt-6 z-3 h-[30%] flex justify-center items-center hidden" id="weatherlatloncontainer">
+                <input type="Number" id="latweatherinput" placeholder="insert the latitude" class="border-b border-white text-white pl-3 pr-3 mr-3 z-5 font-roboto">
+                <input type="Number" id="longweatherinput" placeholder="insert the longitude" class="border-b border-white text-white pl-3 pr-3 mr-3 z-5 font-roboto">
+                <button id="getlatlonweatherbutton" class=" rounded-md bg-blue-500 text-white pl-3 pr-3 hover:scale-105 hover:text-white hover:bg-black cursor-pointer z-10 font-roboto"><i class="fa-solid fa-cloud-sun"></i></button>
+            </div>
+            <div class=" rounded-md mt-6 z-3 h-[30%] flex justify-center items-center hidden" id="weathercitycontainer">
+                <input type="text" id="citytextinput" placeholder="insert the city name" class="border-b border-white text-white pl-3 pr-3 mr-3 z-5 font-roboto text-2xl">
+                <button id="getweatherbutton" class=" rounded-md bg-blue-500 text-white pl-4 pr-4 hover:scale-105 hover:text-white hover:bg-black cursor-pointer z-10 font-roboto text-2xl"><i class="fa-solid fa-cloud-sun"></i></button>
             </div>
         
 
        <div class=" rounded-lg h-[20vh] flex justify-center items-center hidden" id="textchangecontainer">
-            <div class="relative bg-blue-500 w-[20%] h-[auto] rounded-lg pt-5 pb-5 md:p-5 shadow-lg">
+            <div class="relative bg-blue-500/20 w-[90%] md:w-[20%] h-[auto] rounded-lg pt-5 pb-5 md:p-5 shadow-lg">
                 <button class="absolute -top-3 -right-3 cursor-pointer" onclick="closetextchangecontainer()"><i class="fa-solid fa-circle-xmark"></i></button>
                 <p id="changetext" class="z-3 text-white"></p>
             </div>
