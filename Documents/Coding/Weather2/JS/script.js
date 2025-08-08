@@ -29,13 +29,34 @@ navmobileclosebutton.addEventListener('click', () =>{
 
 const dayarray = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
 const montharray = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
-
+const countryobject = {
+    "ID":"Indonesia",
+    "IN":"India",
+    "DE":"Germany",
+    "CN":"China",
+    "GB":"United Kingdom",
+    "IT":"Italia",
+    "SG":"Singapore",
+    "US":"America",
+    "JP":"Japan",
+    "RU":"Russia",
+    "ES":"Spain",
+    "FR":"France",
+    "DK":"Denmark",
+    "AU":"Australia",
+    "NZ":"New Zealand",
+    "VN":"Vietnam",
+    "EG":"Egypt",
+    "TR":"Turkey",
+    "BR":"Brazil"
+}
 
 async function getweatherfunction(){
     const citytextinput = document.getElementById('citytextinput');
 
     const weatherdata = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${citytextinput.value}&appid=286ad2f78fee5038e5f4c39b2c60a946`)
     const data = await weatherdata.json();
+    const fullcountryname = countryobject[data.sys.country];
     textchangecontainer.classList.remove('hidden');
     changetext.innerHTML = `
         <div class='border-white w-[100%]'>
@@ -45,6 +66,7 @@ async function getweatherfunction(){
             <br>
                 <img class='w-[20px] mx-auto' src='./asset/${data.sys.country}.png'>
                 <p>${data.sys.country}</p>
+                <p>${fullcountryname}</p>
             <br> 
                 <p class='text-2xl font-josefinsans'>${data.name} </p>
             <br> 
@@ -84,6 +106,7 @@ async function getweatherlatlonfunction(){
             <br>
                 <img class='w-[20px] mx-auto' src='./asset/${data.sys.country}.png'>
                 <p>${data.sys.country}</p>
+
             <br> 
                 <p class='text-2xl font-josefinsans'>${data.name} </p>
             <br> 
