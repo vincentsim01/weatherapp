@@ -239,7 +239,40 @@ getlatlonweatherbutton.addEventListener('click', getweatherlatlonfunction);
 async function setthreecityone(){
     const weatherdata = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=Jakarta&appid=286ad2f78fee5038e5f4c39b2c60a946`)
     const data = await weatherdata.json();
-    document.getElementById('threecityone').innerHTML= `<img src="./asset/id.png" class="w-[20px] rounded-full border border-white shadow-3xl mx-auto"></img><br>${data.sys.country} <br> <b>${data.name}</b> <br> ${data.main.temp} F`;
+    document.getElementById('threecityone').innerHTML= `
+
+
+        <div class='border-white w-[100%]'>
+            <p class='text-xs'>
+                ${dayarray[timenowday-1]}, ${timenowdate} ${montharray[timenowmonth-1]} ${timenowyear} - ${timenowhour}:${timenowmin}:${timenowsec}
+            </p>
+            <br>
+                <img class='w-[20px] mx-auto' src='./asset/${data.sys.country}.png'>
+                <p>${countryobject[data.sys.country]}</p>
+
+            <br> 
+                <p class='text-2xl font-josefinsans'>${data.name} </p>
+            <br> 
+            <p>
+                ${data.weather[0].main} - ${data.weather[0].description}
+            </p>
+            <br>
+            <div class='flex justify-between items-center font-roboto'>
+                <div class='pr-5'>
+                    <p class='mx-auto'>Pressure</p>
+                    ${data.main.pressure} psi
+                </div>
+                <div class='w-[40%] border-l border-r'>
+                    <p class='mx-auto'>Temperature</p>
+                    ${data.main.temp} F
+                </div>
+                <div class='pl-5'>
+                    <p class='mx-auto'>Humidity</p>
+                    ${data.main.humidity} %
+                </div>
+            </div>
+        </div>
+        `;
 }
 
 setTimeout(setthreecityone(),0);  
@@ -247,7 +280,38 @@ setTimeout(setthreecityone(),0);
 async function setthreecitytwo(){
     const weatherdata = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=Copenhagen&appid=286ad2f78fee5038e5f4c39b2c60a946`)
     const data = await weatherdata.json();
-    document.getElementById('threecitytwo').innerHTML= `<img src="./asset/dk.png" class="w-[20px] rounded-full border border-white shadow-3xl mx-auto"></img><br>${data.sys.country} <br> <b>${data.name}</b> <br> ${data.main.temp} F`;
+    document.getElementById('threecitytwo').innerHTML= `
+                <div class='border-white w-[100%]'>
+            <p class='text-xs'>
+                ${dayarray[timenowday-1]}, ${timenowdate} ${montharray[timenowmonth-1]} ${timenowyear} - ${timenowhour}:${timenowmin}:${timenowsec}
+            </p>
+            <br>
+                <img class='w-[20px] mx-auto' src='./asset/${data.sys.country}.png'>
+                <p>${countryobject[data.sys.country]}</p>
+
+            <br> 
+                <p class='text-2xl font-josefinsans'>${data.name} </p>
+            <br> 
+            <p>
+                ${data.weather[0].main} - ${data.weather[0].description}
+            </p>
+            <br>
+            <div class='flex justify-between items-center font-roboto'>
+                <div class='pr-5'>
+                    <p class='mx-auto'>Pressure</p>
+                    ${data.main.pressure} psi
+                </div>
+                <div class='w-[40%] border-l border-r'>
+                    <p class='mx-auto'>Temperature</p>
+                    ${data.main.temp} F
+                </div>
+                <div class='pl-5'>
+                    <p class='mx-auto'>Humidity</p>
+                    ${data.main.humidity} %
+                </div>
+            </div>
+        </div>
+    `;
 }
 
 setTimeout(setthreecitytwo(),0); 
@@ -256,7 +320,38 @@ setTimeout(setthreecitytwo(),0);
 async function setthreecitythree(){
     const weatherdata = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=Amsterdam&appid=286ad2f78fee5038e5f4c39b2c60a946`)
     const data = await weatherdata.json();
-    document.getElementById('threecitythree').innerHTML= `<img src="./asset/nl.png" class="w-[20px] rounded-full border border-white shadow-3xl mx-auto"></img><br>${data.sys.country} <br> <b>${data.name}</b> <br> ${data.main.temp} F`;
+    document.getElementById('threecitythree').innerHTML= `
+        <div class='border-white w-[100%]'>
+            <p class='text-xs'>
+                ${dayarray[timenowday-1]}, ${timenowdate} ${montharray[timenowmonth-1]} ${timenowyear} - ${timenowhour}:${timenowmin}:${timenowsec}
+            </p>
+            <br>
+                <img class='w-[20px] mx-auto' src='./asset/${data.sys.country}.png'>
+                <p>${countryobject[data.sys.country]}</p>
+
+            <br> 
+                <p class='text-2xl font-josefinsans'>${data.name} </p>
+            <br> 
+            <p>
+                ${data.weather[0].main} - ${data.weather[0].description}
+            </p>
+            <br>
+            <div class='flex justify-between items-center font-roboto'>
+                <div class='pr-5'>
+                    <p class='mx-auto'>Pressure</p>
+                    ${data.main.pressure} psi
+                </div>
+                <div class='w-[40%] border-l border-r'>
+                    <p class='mx-auto'>Temperature</p>
+                    ${data.main.temp} F
+                </div>
+                <div class='pl-5'>
+                    <p class='mx-auto'>Humidity</p>
+                    ${data.main.humidity} %
+                </div>
+            </div>
+        </div>
+    `;
 }
 
 setTimeout(setthreecitythree(),0);  
